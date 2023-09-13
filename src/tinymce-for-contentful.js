@@ -16,7 +16,8 @@ window.contentfulExtension.init(function(api) {
   const imageUploadHandler = (blobInfo, progress) => new Promise(async (resolve, reject) => {
     const blob = blobInfo.blob();
     const arrayBuffer = await blob.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    const encoder = new TextEncoder();
+    const buffer = encoder.encode(arrayBuffer);
     $.ajax({
       url: apiDomain + '/media/upload/' + blobInfo.filename(),
       headers: {
@@ -46,8 +47,7 @@ window.contentfulExtension.init(function(api) {
       plugins: p,
       toolbar: tb,
       menubar: mb,
-      min_height: 600,
-      max_height: 1000,
+      min_height: 1000,
       autoresize_bottom_margin: 15,
       resize: true,
       image_caption: true,
