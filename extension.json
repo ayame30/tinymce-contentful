@@ -6,20 +6,12 @@
   "parameters": {
     "installation": [
       {
-        "id": "apiKey",
+        "id": "minSrcUrl",
         "type": "Symbol",
-        "name": "TinyMCE Cloud API Key",
+        "name": "TinyMCE min.js url",
         "description": "",
-        "required": false,
-        "default": "please-specify-your-key"
-      },
-      {
-        "id": "channel",
-        "type": "Symbol",
-        "name": "TinyMCE Cloud 'channel' to use",
-        "description": "",
-        "required": false,
-        "default": "5"
+        "required": true,
+        "default": "please-specify-your-url"
       }
     ],
     "instance": [
@@ -27,7 +19,7 @@
           "id": "plugins",
           "name": "Plugins",
           "type": "Symbol",
-          "default": "autoresize textpattern lists advlist a11ychecker linkchecker media mediaembed powerpaste tinymcespellchecker advcode image",
+          "default": "autoresize emoticons link imagetools visualblocks visualchars wordcount table textcolor colorpicker searchreplace toc autolink textpattern anchor lists advlist preview a11ychecker media mediaembed tinymcespellchecker image",
           "required": false,
           "description": "Space separated list of TinyMCE plugins to enable. See https://www.tiny.cloud/docs/plugins/ for more information on plugins."
       },
@@ -35,7 +27,7 @@
           "id": "toolbar",
           "name": "Toolbar",
           "type": "Symbol",
-          "default": "undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent intent | code",
+          "default": "undo redo | formatselect forecolor backcolor | link image toc imagetools table | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent intent | code searchreplace autolink emoticons",
           "required": false,
           "description": "Specify your toolbar configuration here. To use the default toolbar, clear this field. To hide the toolbar, enter the value 'false'. See https://www.tiny.cloud/docs/configure/editor-appearance/#"
       },
@@ -43,7 +35,7 @@
           "id": "menubar",
           "name": "Menubar",
           "type": "Symbol",
-          "default": "edit view insert format",
+          "default": "edit insert view format table tools help",
           "required": false,
           "description": "Specify the menus to display here. To use the default menu bar, clear this field. To hide the menu, enter the value 'false'. See https://www.tiny.cloud/docs/configure/editor-appearance/#menubar"
       }
