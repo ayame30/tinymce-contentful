@@ -84,7 +84,7 @@ window.contentfulExtension.init(function(api) {
     document.body.appendChild(script);
   }
 
-  loadScript('./tinymce.min.js', function() {
+  loadScript('./tinymce/tinymce.min.js', function() {
     tinymceForContentful(api);
   });
 });
