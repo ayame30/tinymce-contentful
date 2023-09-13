@@ -1,19 +1,43 @@
 window.contentfulExtension.init(function(api) {
-  function tinymceForContentful(api) {
-    function tweak(param) {
-      var t = param.trim();
-      if (t === "false") {
-        return false;
-      } else if (t === "") {
-        return undefined;
-      } else {
-        return t;
-      }
+  function tweak(param) {
+    var t = param.trim();
+    if (t === "false") {
+      return false;
+    } else if (t === "") {
+      return undefined;
+    } else {
+      return t;
     }
+  }
 
+  var apiDomain = tweak(api.parameters.installation.apiDomain);
+  var apiToken = tweak(api.parameters.installation.apiToken);
+
+  const imageUploadHandler = (blobInfo, progress) => new Promise(async (resolve, reject) => {
+    const blob = blobInfo.blob();
+    const arrayBuffer = await blob.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    $.ajax({
+      url: apiDomain + '/media/upload/' + blobInfo.filename(),
+      headers: {
+          'Authorization': 'Bearer ' + apiToken, 
+      },
+      type: "POST",
+      data: buffer,
+      processData: false
+    }).then((res) => {
+      console.log(res);
+      resolve(res.url);
+    }).catch((err) => {
+      reject(err);
+    });
+  });
+
+  function tinymceForContentful(api) {
     var p = tweak(api.parameters.instance.plugins);
     var tb = tweak(api.parameters.instance.toolbar);
     var mb = tweak(api.parameters.instance.menubar);  
+    var imagetoolsCorsHosts = tweak(api.parameters.instance.imagetoolsCorsHosts);  
 
     api.window.startAutoResizer();
 
@@ -23,10 +47,12 @@ window.contentfulExtension.init(function(api) {
       toolbar: tb,
       menubar: mb,
       min_height: 600,
-      max_height: 750,
+      max_height: 1000,
       autoresize_bottom_margin: 15,
-      resize: false,
+      resize: true,
       image_caption: true,
+      imagetools_cors_hosts: imagetoolsCorsHosts.split(','),
+      images_upload_handler: imageUploadHandler,
       init_instance_callback : function(editor) {
         var listening = true;
 
@@ -84,7 +110,8 @@ window.contentfulExtension.init(function(api) {
     document.body.appendChild(script);
   }
 
-  loadScript('./tinymce/tinymce.min.js', function() {
+  var minSrcUrl = api.parameters.installation.minSrcUrl;
+  loadScript(minSrcUrl, function() {
     tinymceForContentful(api);
   });
 });

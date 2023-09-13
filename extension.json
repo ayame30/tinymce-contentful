@@ -12,6 +12,30 @@
         "description": "",
         "required": true,
         "default": "please-specify-your-url"
+      },
+      {
+        "id": "imagetoolsCorsHosts",
+        "type": "Symbol",
+        "name": "Image CORS host, separate by comma",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiDomain",
+        "type": "Symbol",
+        "name": "Image Upload Api Domain",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiToken",
+        "type": "Symbol",
+        "name": "Image Upload Api Token",
+        "description": "",
+        "required": true,
+        "default": ""
       }
     ],
     "instance": [
