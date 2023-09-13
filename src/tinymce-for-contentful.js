@@ -37,7 +37,7 @@ window.contentfulExtension.init(function(api) {
     var p = tweak(api.parameters.instance.plugins);
     var tb = tweak(api.parameters.instance.toolbar);
     var mb = tweak(api.parameters.instance.menubar);  
-    var imagetoolsCorsHosts = tweak(api.parameters.instance.imagetoolsCorsHosts);  
+    var imagetoolsCorsHosts = tweak(api.parameters.installation.imagetoolsCorsHosts);  
 
     api.window.startAutoResizer();
 
