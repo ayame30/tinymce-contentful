@@ -30,9 +30,41 @@
         "default": ""
       },
       {
-        "id": "apiToken",
+        "id": "apiTokenChunk1",
         "type": "Symbol",
-        "name": "Image Upload Api Token",
+        "name": "Image Upload Api Token Partial",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiTokenChunk2",
+        "type": "Symbol",
+        "name": "Image Upload Api Token Partial",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiTokenChunk3",
+        "type": "Symbol",
+        "name": "Image Upload Api Token Partial",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiTokenChunk4",
+        "type": "Symbol",
+        "name": "Image Upload Api Token Partial",
+        "description": "",
+        "required": true,
+        "default": ""
+      },
+      {
+        "id": "apiTokenChunk5",
+        "type": "Symbol",
+        "name": "Image Upload Api Token Partial",
         "description": "",
         "required": true,
         "default": ""
