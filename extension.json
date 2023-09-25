@@ -30,41 +30,25 @@
         "default": ""
       },
       {
-        "id": "apiTokenChunk1",
+        "id": "auth0Host",
         "type": "Symbol",
-        "name": "Image Upload Api Token Partial",
+        "name": "Auth0 Host",
         "description": "",
         "required": true,
         "default": ""
       },
       {
-        "id": "apiTokenChunk2",
+        "id": "auth0ClientId",
         "type": "Symbol",
-        "name": "Image Upload Api Token Partial",
+        "name": "Auth0 Client id",
         "description": "",
         "required": true,
         "default": ""
       },
       {
-        "id": "apiTokenChunk3",
+        "id": "auth0ClientSecret",
         "type": "Symbol",
-        "name": "Image Upload Api Token Partial",
-        "description": "",
-        "required": true,
-        "default": ""
-      },
-      {
-        "id": "apiTokenChunk4",
-        "type": "Symbol",
-        "name": "Image Upload Api Token Partial",
-        "description": "",
-        "required": true,
-        "default": ""
-      },
-      {
-        "id": "apiTokenChunk5",
-        "type": "Symbol",
-        "name": "Image Upload Api Token Partial",
+        "name": "Auth0 Client secret",
         "description": "",
         "required": true,
         "default": ""
